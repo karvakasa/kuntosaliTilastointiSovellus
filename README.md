@@ -10,3 +10,6 @@ Tietokanta taulut olisivat
 5. käyttäjäloki: kayttaja_id, date
 
 Sovellus toimii vielä tönkösti ekalla kerralla. ensiksi joutuu kirjautumaan vaikka tunnuksia ei ole. joka siirtää sinut käyttäjän luomiseen ja siitä takaisin kirjautumis pisteeseen. kirjautumisen jälkeen tulee yleissivu mihin voi lisätä tuloksia (ei toimi vielä, chrashaa), mennä tuloksiin (ei vielä mitään siellä) josta voi napilla mennä takaisin yleissivulle, käyttäjä loki pitää listaa milloin olet kirjautunut sisään (ei myöskään omista sisällään mitään järkevää vielä) ja yleissivun pohjalla on kirjaudu ulos nappi.
+
+heroku sovelluksen linkki:
+https://tsoha-punttisalitilastointi.herokuapp.com
