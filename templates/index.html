@@ -1,0 +1,35 @@
+{% if session.username %}
+<p>Olet kirjautunut nimellä {{ session.username }}</p>
+<a href="/statistics">tulokset</a> <a href="/userlog">käyttäjä loki</a> 
+<form action="/add" method="POST">
+    <hr>
+    <p>Paikka</p>
+    <input type="Paikka" name="Paikka"></p>
+
+    <label for="liike">Valitse liike:</label>
+    <select name="liike" id="liike">
+        <option value="penkki">Penkki</option>
+        <option value="kyykky">Kyykky</option>
+        <option value="skottipenkki">Skottipenkki</option>
+        <option value="jalkaprassi">Jalkaprässi</option>
+        <option value="maastaveto">Maastaveto</option>
+    </select>
+    <p>Maara</p>
+    <input type="Maara" name="maara"></p>
+    <p>Paino</p>
+    <input type="paino" name="paino"></p>
+    <input type="submit" value="lisää tulos">
+    <hr>
+
+</form>
+
+<a href="/logout">Kirjaudu ulos</a>
+{% else %}
+<form action="/login" method="POST">
+    <p>Tunnus:<br>
+        <input type="text" name="username"></p>
+    <p>Salasana:<br>
+    <input type="password" name="password"></p>
+    <input type="submit" value="Kirjaudu">
+</form>
+{% endif %}
