@@ -35,8 +35,6 @@ def add():
     result = db.session.execute(sql, {"username": username})
     usernameid = result.fetchone()[0]
 
-    print(type(maara), 'maara', maara)
-
     sql = "INSERT INTO userstats (maara, painomaara, paivamaara, liike_id, users_id, paikka_id) VALUES (:maara, :paino, NOW(), :liikeid, :usernameid, :punttisalinnimiid)"
     db.session.execute(sql, {"maara": maara, "paino": paino, "liikeid": liikeid, "usernameid": usernameid, "punttisalinnimiid": punttisalinnimiid})
     db.session.commit()
