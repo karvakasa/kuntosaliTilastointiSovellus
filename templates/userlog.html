@@ -2,6 +2,12 @@
 olet kirjautunut sovellukseen päivinä
 <button onclick="goBack()">takaisin</button>
 
+<hr>
+{% for sended in sent_at %}
+{{ sended[0].strftime("%H:%M %d-%m-%Y") }}
+<hr>
+{% endfor %}
+
 <script>
 function goBack() {
   window.history.back();

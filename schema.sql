@@ -1,2 +1,4 @@
 CREATE TABLE users (id SERIAL PRIMARY KEY, username TEXT, password TEXT);
 CREATE TABLE userlog (id SERIAL PRIMARY KEY, usernameid INTEGER, sent_at TIMESTAMP);
+CREATE TABLE liike (id SERIAL PRIMARY KEY, liike TEXT);
+CREATE TABLE paikka (id SERIAL PRIMARY KEY, punttisalinNimi TEXT);

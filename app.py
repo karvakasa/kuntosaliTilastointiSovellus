@@ -18,6 +18,7 @@ def index():
 
 @app.route("/add", methods=["POST"])
 def add():
+    username = session.get("username")
     paikka = request.form["paikka"]
     liike = request.form["liike"]
     maara = request.form["maara"]
@@ -46,6 +47,9 @@ def login():
         sql = "SELECT id FROM users WHERE username=:username"
         result = db.session.execute(sql, {"username": username})
         usernameid = result.fetchone()[0]
+        
+        print(type(usernameid), 'usernameid', usernameid)
+
         sql = "INSERT INTO userlog (usernameid, sent_at) VALUES (:userid, NOW())"
         db.session.execute(sql, {"userid": usernameid})
         db.session.commit()
@@ -74,7 +78,18 @@ def logout():
 
 @app.route("/userlog")
 def userlog():
-    return render_template("userlog.html")
+    
+    username = session.get("username")
+    
+
+    sql = "SELECT id FROM users WHERE username=:username"
+    result = db.session.execute(sql, {"username": username})
+    usernameid = result.fetchone()[0]
+
+    sql = "SELECT sent_at FROM userlog WHERE usernameid=:usernameid ORDER BY id DESC"
+    result = db.session.execute(sql, {"usernameid":usernameid})
+    sent_at = result.fetchall()
+    return render_template("userlog.html", sent_at=sent_at)
 
 
 @app.route("/statistics")
