@@ -19,11 +19,27 @@ def index():
 @app.route("/add", methods=["POST"])
 def add():
     username = session.get("username")
-    paikka = request.form["paikka"]
+    punttisalinnimi = request.form["paikka"]
     liike = request.form["liike"]
     maara = request.form["maara"]
     paino = request.form["paino"]
-    sql = "INSERT INTO"
+    sql = "SELECT id FROM liike WHERE liike=:liike"
+    result = db.session.execute(sql, {"liike": liike})
+    liikeid = result.fetchone()[0]
+    
+    sql = "SELECT id FROM paikka WHERE punttisalinnimi=:punttisalinnimi"
+    result = db.session.execute(sql, {"punttisalinnimi": punttisalinnimi})
+    punttisalinnimiid = result.fetchone()[0]
+
+    sql = "SELECT id FROM users WHERE username=:username"
+    result = db.session.execute(sql, {"username": username})
+    usernameid = result.fetchone()[0]
+
+    print(type(maara), 'maara', maara)
+
+    sql = "INSERT INTO userstats (maara, painomaara, paivamaara, liike_id, users_id, paikka_id) VALUES (:maara, :paino, NOW(), :liikeid, :usernameid, :punttisalinnimiid)"
+    db.session.execute(sql, {"maara": maara, "paino": paino, "liikeid": liikeid, "usernameid": usernameid, "punttisalinnimiid": punttisalinnimiid})
+    db.session.commit()
 
     return redirect("/")
 

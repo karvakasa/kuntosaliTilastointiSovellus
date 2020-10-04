@@ -3,17 +3,27 @@
 <a href="/statistics">tulokset</a> <a href="/userlog">käyttäjä loki</a> 
 <form action="/add" method="POST">
     <hr>
-    <p>Paikka</p>
-    <input type="Paikka" name="Paikka"></p>
-
-    <label for="liike">Valitse liike:</label>
-    <select name="liike" id="liike">
-        <option value="penkki">Penkki</option>
-        <option value="kyykky">Kyykky</option>
-        <option value="skottipenkki">Skottipenkki</option>
-        <option value="jalkaprassi">Jalkaprässi</option>
-        <option value="maastaveto">Maastaveto</option>
+    <p>
+    <label>Valitse punttisali:</label>
+    <select name="paikka">
+        <option value="Unisport">Unisport</option>
+        <option value="Elixia">Elixia</option>
+        <option value="Fressi">Fressi</option>
+        <option value="fitness24/7">fitness24/7</option>
+        <option value="Fit">Fit</option>
+        <option value="EasyFit">EasyFit</option>
     </select>
+    </p>
+    <p>
+    <label>Valitse liike:</label>
+    <select name="liike">
+        <option value="Penkki">Penkki</option>
+        <option value="Kyykky">Kyykky</option>
+        <option value="Skottipenkki">Skottipenkki</option>
+        <option value="Jalkaprassi">Jalkaprässi</option>
+        <option value="Maastaveto">Maastaveto</option>
+    </select>
+    </p>
     <p>Maara</p>
     <input type="Maara" name="maara"></p>
     <p>Paino</p>
