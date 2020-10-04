@@ -12,7 +12,7 @@ Tietokanta taulut olisivat
 4. toistot: määrä liike_id, kayttaja_id, painomäärä, päivämäärä, paikka_id 
 5. käyttäjäloki: kayttaja_id, date
 
-Sovellus toimii vielä tönkösti ekalla kerralla. ensiksi joutuu kirjautumaan vaikka tunnuksia ei ole. joka siirtää sinut käyttäjän luomiseen ja siitä takaisin kirjautumis pisteeseen. kirjautumisen jälkeen tulee yleissivu mihin voi lisätä tuloksia (ei toimi vielä, chrashaa), mennä tuloksiin (ei vielä mitään siellä) josta voi napilla mennä takaisin yleissivulle, käyttäjä loki pitää listaa milloin olet kirjautunut sisään (herokussa ollaan 3h jäljessä, pitäisi määritellä käyttäjän omat aikavyöhykkeet) ja yleissivun pohjalla on kirjaudu ulos nappi.
+Sovellus toimii vielä tönkösti ekalla kerralla. ensiksi joutuu kirjautumaan vaikka tunnuksia ei ole. joka siirtää sinut käyttäjän luomiseen ja siitä takaisin kirjautumis pisteeseen. kirjautumisen jälkeen tulee yleissivu mihin voi lisätä tuloksia (lokaalisti toimii, herokussa chrashaa, for some reason), mennä tuloksiin (ei vielä mitään siellä) josta voi napilla mennä takaisin yleissivulle, käyttäjä loki pitää listaa milloin olet kirjautunut sisään (herokussa ollaan 3h jäljessä, pitäisi määritellä käyttäjän omat aikavyöhykkeet) ja yleissivun pohjalla on kirjaudu ulos nappi.
 
 heroku sovelluksen linkki:
 https://tsoha-punttisalitilastointi.herokuapp.com
