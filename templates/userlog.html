@@ -1,11 +1,12 @@
 {{ session.username }}
 olet kirjautunut sovellukseen päivinä
 
-<button onclick="goBack()">takaisin</button>
+<br><button onclick="goBack()">takaisin</button>
 
 <hr>
 {% for sended in sent_at %}
-{{ sended[0].strftime("%H:%M %d-%m-%Y") }}
+Kello: {{ sended[0].strftime("%H:%M") }} &nbsp;
+Päivänä: {{ sended[0].strftime("%d-%m-%Y") }} &nbsp;
 <hr>
 {% endfor %}
 
