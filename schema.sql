@@ -5,11 +5,11 @@ CREATE TABLE gym (id SERIAL PRIMARY KEY, gym_place TEXT);
 CREATE TABLE userStats (id SERIAL PRIMARY KEY, do_amount INTEGER, weight_amount INTEGER, date TIMESTAMP,
  equipment_id INTEGER REFERENCES equipment, users_id INTEGER REFERENCES users, gym_id INTEGER REFERENCES gym);
 
-INSERT INTO equipment (gym_equipment) VALUES ('bench_press');
-INSERT INTO equipment (gym_equipment) VALUES ('scottish_bench');
-INSERT INTO equipment (gym_equipment) VALUES ('squat');
-INSERT INTO equipment (gym_equipment) VALUES ('foot_press');
-INSERT INTO equipment (gym_equipment) VALUES ('deadlift');
+INSERT INTO equipment (gym_equipment) VALUES ('Penkki');
+INSERT INTO equipment (gym_equipment) VALUES ('Jalkakyykky');
+INSERT INTO equipment (gym_equipment) VALUES ('Skottipenkki');
+INSERT INTO equipment (gym_equipment) VALUES ('Jalkaprassi');
+INSERT INTO equipment (gym_equipment) VALUES ('Maastaveto');
 
 INSERT INTO gym (gym_place) VALUES ('Unisport');
 INSERT INTO gym (gym_place) VALUES ('Elixia');

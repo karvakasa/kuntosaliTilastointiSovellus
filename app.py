@@ -116,7 +116,7 @@ def statistics():
     sql = "SELECT id FROM users WHERE username=:username"
     result = db.session.execute(sql, {"username": username})
     username_id = result.fetchone()[0]
-    sql = "SELECT do_amount, weight_amount, gym_place, gym_equipment FROM userstats INNER JOIN gym ON userstats.gym_id=gym.id INNER JOIN equipment ON userstats.equipment_id=equipment.id WHERE users_id=:users_id ORDER BY date DESC"
+    sql = "SELECT gym_equipment, gym_place, date FROM userstats INNER JOIN gym ON userstats.gym_id=gym.id INNER JOIN equipment ON userstats.equipment_id=equipment.id WHERE users_id=:users_id ORDER BY date DESC"
     result = db.session.execute(sql, {"users_id":username_id})
     stats = result.fetchall()
     

@@ -12,7 +12,7 @@ Olet käynyt urheilemassa
   <input type="submit" value="Maastaveto tulokset">
 </form>
 <form action="/squat">
-  <input type="submit" value="Kyykky tulokset">
+  <input type="submit" value="Jalkakyykky tulokset">
 </form>
 <form action="/footpress">
   <input type="submit" value="Jalkaprässi tulokset">
@@ -20,14 +20,12 @@ Olet käynyt urheilemassa
 
 <hr>
 {% for stat in stats %}
-määrä:
-{{ stat[0] }}
-paino:
-{{ stat[1] }}
-paikka:
-{{ stat[2] }}
 Liike:
-{{ stat[3] }}
+{{ stat[0] }} &nbsp;
+Kuntosali:
+{{ stat[1] }} &nbsp;
+päivämäärä:
+{{ stat[2].strftime("%d.%m.%Y") }}
 <hr>
 {% endfor %}
 
