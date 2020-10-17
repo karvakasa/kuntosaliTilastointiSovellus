@@ -64,8 +64,6 @@ def login():
         sql = "SELECT id FROM users WHERE username=:username"
         result = db.session.execute(sql, {"username": username})
         usernameid = result.fetchone()[0]
-        
-        print(type(usernameid), 'usernameid', usernameid)
 
         sql = "INSERT INTO userlog (usernameid, sent_at) VALUES (:userid, NOW())"
         db.session.execute(sql, {"userid": usernameid})
