@@ -1,13 +1,33 @@
 {{ session.username }}
 Olet käynyt urheilemassa
 
-<button onclick="goBack()">takaisin</button>
-<a href="/bench_press">Penkki tulokset</a> 
-<a href="/Scottish_bench">käyttäjä loki</a> 
+<br><button onclick="goBack()">takaisin</button><br>
+<br><form action="/bench_press">
+  <input type="submit" value="penkin tulokset">
+</form>
+<form action="/scottish_bench">
+  <input type="submit" value="Skottipenkin tulokset">
+</form>
+<form action="/deadlift">
+  <input type="submit" value="Maastaveto tulokset">
+</form>
+<form action="/squat">
+  <input type="submit" value="Kyykky tulokset">
+</form>
+<form action="/footpress">
+  <input type="submit" value="Jalkaprässi tulokset">
+</form>
 
 <hr>
 {% for stat in stats %}
-{{ stat }}
+määrä:
+{{ stat[0] }}
+paino:
+{{ stat[1] }}
+paikka:
+{{ stat[2] }}
+Liike:
+{{ stat[3] }}
 <hr>
 {% endfor %}
 
