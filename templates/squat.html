@@ -1,0 +1,17 @@
+<header>
+    Jalkakyykky tuloksesi! :)
+</header>
+<br><button onclick="goBack()">takaisin</button><br>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script> 
+<hr>
+{% for stat in stats %}
+Päivä:  {{ stat[0].strftime("%d.%m.%Y") }} &nbsp;
+Määrä:  {{ stat[1] }} &nbsp;
+Painomäärä:  {{ stat[2] }} &nbsp;
+kuntosalilla:  {{ stat[3] }} 
+<hr>
+{% endfor %}
