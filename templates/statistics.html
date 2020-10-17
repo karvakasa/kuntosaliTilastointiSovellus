@@ -2,6 +2,14 @@
 Olet käynyt urheilemassa
 
 <button onclick="goBack()">takaisin</button>
+<a href="/bench_press">Penkki tulokset</a> 
+<a href="/Scottish_bench">käyttäjä loki</a> 
+
+<hr>
+{% for stat in stats %}
+{{ stat }}
+<hr>
+{% endfor %}
 
 <script>
 function goBack() {

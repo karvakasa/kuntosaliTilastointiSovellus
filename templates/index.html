@@ -5,7 +5,7 @@
     <hr>
     <p>
     <label>Valitse punttisali:</label>
-    <select name="paikka">
+    <select name="gym">
         <option value="Unisport">Unisport</option>
         <option value="Elixia">Elixia</option>
         <option value="Fressi">Fressi</option>
@@ -16,18 +16,18 @@
     </p>
     <p>
     <label>Valitse liike:</label>
-    <select name="liike">
-        <option value="Penkki">Penkki</option>
-        <option value="Kyykky">Kyykky</option>
-        <option value="Skottipenkki">Skottipenkki</option>
-        <option value="Jalkaprässi">Jalkäprässi</option>
-        <option value="Maastaveto">Maastaveto</option>
+    <select name="gym_equipment">
+        <option value="bench_press">Penkki</option>
+        <option value="squat">Kyykky</option>
+        <option value="scottish_bench">Skotti penkki</option>
+        <option value="foot_press">Jalkaprässi</option>
+        <option value="deadlift">Maastaveto</option>
     </select>
     </p>
     <p>Maara</p>
-    <input type="Maara" name="maara"></p>
+    <input type="number" name="do_amount" minlength="1" min="1" max="1000" required title="Numbers only"></p>
     <p>Paino</p>
-    <input type="paino" name="paino"></p>
+    <input type="number" name="weight_amount" minlength="1" min="1" max="1000" required title="Numbers only"></p>
     <input type="submit" value="lisää tulos">
     <hr>
 
@@ -35,11 +35,14 @@
 
 <a href="/logout">Kirjaudu ulos</a>
 {% else %}
+<form action="/donewuser" method="POST">
+    <input type="submit" value="Tee uusi käyttäjä">
+</form>
 <form action="/login" method="POST">
     <p>Tunnus:<br>
-        <input type="text" name="username"></p>
+        <input type="text" name="username" minlength="1" required></p>
     <p>Salasana:<br>
-    <input type="password" name="password"></p>
+    <input type="password" name="password" minlength="1" required></p>
     <input type="submit" value="Kirjaudu">
 </form>
 {% endif %}

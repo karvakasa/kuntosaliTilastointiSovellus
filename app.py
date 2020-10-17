@@ -19,29 +19,32 @@ def index():
 @app.route("/add", methods=["POST"])
 def add():
     username = session.get("username")
-    punttisalinnimi = request.form["paikka"]
-    liike = request.form["liike"]
-    maara = request.form["maara"]
-    paino = request.form["paino"]
-    sql = "SELECT id FROM liike WHERE liike=:liike"
-    result = db.session.execute(sql, {"liike": liike})
-    liikeid = result.fetchone()[0]
+    gym_place = request.form["gym"]
+    gym_equipment = request.form["gym_equipment"]
+    do_amount = request.form["do_amount"]
+    weight_amount = request.form["weight_amount"]
+    sql = "SELECT id FROM equipment WHERE gym_equipment=:gym_equipment"
+    result = db.session.execute(sql, {"gym_equipment": gym_equipment})
+    equipment_id = result.fetchone()[0]
     
-    sql = "SELECT id FROM paikka WHERE punttisalinnimi=:punttisalinnimi"
-    result = db.session.execute(sql, {"punttisalinnimi": punttisalinnimi})
-    punttisalinnimiid = result.fetchone()[0]
+    sql = "SELECT id FROM gym WHERE gym_place=:gym_place"
+    result = db.session.execute(sql, {"gym_place": gym_place})
+    gym_place_id = result.fetchone()[0]
 
     sql = "SELECT id FROM users WHERE username=:username"
     result = db.session.execute(sql, {"username": username})
-    usernameid = result.fetchone()[0]
+    username_id = result.fetchone()[0]
+    
 
-    sql = "INSERT INTO userstats (maara, painomaara, paivamaara, liike_id, users_id, paikka_id) VALUES (:maara, :paino, NOW(), :liikeid, :usernameid, :punttisalinnimiid)"
-    db.session.execute(sql, {"maara": maara, "paino": paino, "liikeid": liikeid, "usernameid": usernameid, "punttisalinnimiid": punttisalinnimiid})
+    sql = "INSERT INTO userstats (do_amount, weight_amount, date, equipment_id, users_id, gym_id) VALUES (:do_amount, :weight_amount, NOW(), :equipment_id, :username_id, :gym_place_id)"
+    db.session.execute(sql, {"do_amount": do_amount, "weight_amount": weight_amount, "equipment_id": equipment_id, "username_id": username_id, "gym_place_id": gym_place_id})
     db.session.commit()
 
     return redirect("/")
 
-
+@app.route("/donewuser", methods=["POST"])
+def donewuser():
+    return render_template("newuser.html")
 @app.route("/login", methods=["POST"])
 def login():
     username = request.form["username"]
@@ -51,13 +54,13 @@ def login():
     user = result.fetchone()
 
     if user == None:
-        return render_template("usernameNone.html")
+        return render_template("usernamenone.html")
     else:
         hash_value = user[0]
     if check_password_hash(hash_value, password):
         session["username"] = username
 
-        """ tallennetaan muistiin kirjautumishetki ja käyttäjän id """
+        """ save log in time and user id """
         sql = "SELECT id FROM users WHERE username=:username"
         result = db.session.execute(sql, {"username": username})
         usernameid = result.fetchone()[0]
@@ -70,7 +73,7 @@ def login():
 
         return redirect("/")
     else:
-        return render_template("usernameNone.html")
+        return render_template("usernamenone.html")
 
 
 @app.route("/newUser", methods=["POST"])
@@ -98,14 +101,23 @@ def userlog():
 
     sql = "SELECT id FROM users WHERE username=:username"
     result = db.session.execute(sql, {"username": username})
-    usernameid = result.fetchone()[0]
+    username_id = result.fetchone()[0]
 
     sql = "SELECT sent_at FROM userlog WHERE usernameid=:usernameid ORDER BY id DESC"
-    result = db.session.execute(sql, {"usernameid":usernameid})
+    result = db.session.execute(sql, {"usernameid":username_id})
     sent_at = result.fetchall()
     return render_template("userlog.html", sent_at=sent_at)
 
 
 @app.route("/statistics")
 def statistics():
-    return render_template("statistics.html")
+
+    username = session.get("username")
+    sql = "SELECT id FROM users WHERE username=:username"
+    result = db.session.execute(sql, {"username": username})
+    username_id = result.fetchone()[0]
+    sql = "SELECT do_amount, weight_amount, gym_place, gym_equipment FROM userstats INNER JOIN gym ON userstats.gym_id=gym.id INNER JOIN equipment ON userstats.equipment_id=equipment.id WHERE users_id=:users_id ORDER BY date DESC"
+    result = db.session.execute(sql, {"users_id":username_id})
+    stats = result.fetchall()
+    
+    return render_template("statistics.html", stats=stats)
