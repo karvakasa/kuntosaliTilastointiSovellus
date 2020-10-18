@@ -1,5 +1,4 @@
 {% extends "layout.html" %}
-{% block title %}Kirjautuminen{% endblock %}
 {% block content %}
 {% if session.username %}
 <a href="/statistics">tulokset</a> <a href="/userlog">käyttäjä loki</a> 
@@ -33,6 +32,7 @@
     <input type="submit" value="lisää tulos">
 </form>
 
+<br>
 <a href="/logout">Kirjaudu ulos</a>
 {% else %}
 <form action="/donewuser" method="POST">
