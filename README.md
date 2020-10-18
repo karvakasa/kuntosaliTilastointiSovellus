@@ -7,7 +7,7 @@
 - if time, atm heroku is 3h late, and would want make it not late
 
 App works now properly and no errors found by dev. Starter you get to page where you can log in or click button to register.
-Link Startpage goes everywhere, where ever you navigate on the app. Before loggin in it goes back to the first page. After logging in it will redirect you to gym stats adding page. As you are Logged in, you can add new gym stats or check when you have been logging in the past by link. Or you can go check your own Statistics. There is also log out link below addind option in Startpage.
+Link Startpage goes everywhere, where ever you navigate on the app. Before loggin in it goes back to the first page. After logging in it will redirect you to gym stats adding page. As you are Logged in, you can add new gym stats or check when you have been logging in the past by link. Or you can go check your own Statistics. There is also log out link below addind option in Startpage. When adding new stats is easy, just choose equipment, place, put weights in and do amounts, click button and done. html form is restricted so you can only add numbers between 0< >1000 and only numbers even null is not option. 
 
 heroku sovelluksen linkki:
 https://tsoha-punttisalitilastointi.herokuapp.com
