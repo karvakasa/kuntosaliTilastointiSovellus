@@ -1,13 +1,10 @@
 {% extends "layout.html" %}
 {% block title %}Rekisteröidy sivulle{% endblock %}
 {% block content %}
+
 <div>
     <br><button onclick="goBack()">takaisin</button><br>
-    <script>
-    function goBack() {
-    window.history.back();
-    }
-    </script> 
+    
     <form action="/newUser" method="POST">
         <p>Rekisteröidy uudeksi käyttäjäksi</p>
         <p>Tunnus:<br>
@@ -17,4 +14,11 @@
             <input type="submit" value="Tee Käyttäjä">
         </form>
 </div>
+
+<script>
+    function goBack() {
+    window.history.back();
+    }
+</script> 
+
 {% endblock %}

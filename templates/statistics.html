@@ -3,30 +3,30 @@
 {% block content %}
 
 <form action="/bench_press">
-  <input type="submit" value="penkin tulokset">
+    <input type="submit" value="penkin tulokset">
 </form>
 <form action="/scottish_bench">
-  <input type="submit" value="Skottipenkin tulokset">
+    <input type="submit" value="Skottipenkin tulokset">
 </form>
 <form action="/deadlift">
-  <input type="submit" value="Maastaveto tulokset">
+    <input type="submit" value="Maastaveto tulokset">
 </form>
 <form action="/squat">
-  <input type="submit" value="Jalkakyykky tulokset">
+    <input type="submit" value="Jalkakyykky tulokset">
 </form>
 <form action="/footpress">
-  <input type="submit" value="Jalkaprässi tulokset">
+    <input type="submit" value="Jalkaprässi tulokset">
 </form>
 <br>{{ session.username }}
 Olet käynyt urheilemassa <br>
 <hr>
-{% for stat in stats %}
-Liike:
-{{ stat[0] }} &nbsp;
-Kuntosali:
-{{ stat[1] }} &nbsp;
-päivämäärä:
-{{ stat[2].strftime("%d.%m.%Y") }}
+    {% for stat in stats %}
+    Liike:
+    {{ stat[0] }} &nbsp;
+    Kuntosali:
+    {{ stat[1] }} &nbsp;
+    päivämäärä:
+    {{ stat[2].strftime("%d.%m.%Y") }}
 <hr>
 {% endfor %}
 
