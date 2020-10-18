@@ -1,4 +1,6 @@
 {% extends "layout.html" %}
+{% block title %} Kirjaudu {% endblock %}
+{% block content %}
 <p>tuntematon käyttäjä tai salasana</p>
 <button onclick="goBack()">yritä uudelleen kirjautua</button>
 <p>Tee uusi käyttäjä</p>
@@ -14,3 +16,4 @@
       window.history.back();
     }
     </script> 
+{% endblock %}

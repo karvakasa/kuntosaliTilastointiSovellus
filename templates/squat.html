@@ -1,3 +1,7 @@
+{% extends "layout.html" %}
+{% block title %} Kyykky Tulokset {% endblock %}
+{% block content %}
+
 <header>
     Jalkakyykky tuloksesi! :)
 </header>
@@ -15,3 +19,5 @@ Painomäärä:  {{ stat[2] }} &nbsp;
 kuntosalilla:  {{ stat[3] }} 
 <hr>
 {% endfor %}
+
+{% endblock %}

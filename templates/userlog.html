@@ -1,7 +1,9 @@
+{% extends "layout.html" %}
+{% block title %} Käyttäjä loki {% endblock %}
+{% block content %}
+
 {{ session.username }}
 olet kirjautunut sovellukseen päivinä
-
-<br><button onclick="goBack()">takaisin</button>
 
 <hr>
 {% for sended in sent_at %}
@@ -10,8 +12,4 @@ Päivä: {{ sended[0].strftime("%d-%m-%Y") }} &nbsp;
 <hr>
 {% endfor %}
 
-<script>
-function goBack() {
-  window.history.back();
-}
-</script> 
+{% endblock %}

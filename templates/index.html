@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-<title>{% block title %}MOI{% endblock %}</title>
+{% block title %}Kirjautuminen{% endblock %}
 {% block content %}
 {% if session.username %}
 <a href="/statistics">tulokset</a> <a href="/userlog">käyttäjä loki</a> 

@@ -1,8 +1,8 @@
-{{ session.username }}
-Olet käynyt urheilemassa
+{% extends "layout.html" %}
+{% block title %} Tilastot {% endblock %}
+{% block content %}
 
-<br><button onclick="goBack()">takaisin</button><br>
-<br><form action="/bench_press">
+<form action="/bench_press">
   <input type="submit" value="penkin tulokset">
 </form>
 <form action="/scottish_bench">
@@ -17,7 +17,8 @@ Olet käynyt urheilemassa
 <form action="/footpress">
   <input type="submit" value="Jalkaprässi tulokset">
 </form>
-
+<br>{{ session.username }}
+Olet käynyt urheilemassa <br>
 <hr>
 {% for stat in stats %}
 Liike:
@@ -29,8 +30,4 @@ päivämäärä:
 <hr>
 {% endfor %}
 
-<script>
-function goBack() {
-  window.history.back();
-}
-</script> 
+{% endblock %}
