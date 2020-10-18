@@ -1,18 +1,13 @@
 # kuntosaliTilastointiSovellus
-- Tarkoituksena olisi tehdä Kuntosali Tilastointi sovellus johon kirjaudutaan ensiksi sisään jotta näemme vain omat tulokset emmekä kaikkien ihmisten tuloksia.
 
-- Seuraavaksi on mahdollisuus lisätä päivän treenin tulokset. Eli liike, toistojen määrä, likkeen paino määrä, paikka ja päivämäärä otamme suoraan lisäys päivästä.
+- Intention is to make Gym Statistics app, where we log in first so we just see our stats.
+- after registering or logging in we can add done exersices
+- we can both see when we have logged in onto the app and also see old Gym statistics
+- if time, you can specify more which stats you want see and not only by equipment
+- if time, atm heroku is 3h late, and would want make it not late
 
-- On myös mahdollisuus hakea vanhoja tuloksia hakemalla yksittäisiä liikkeitä ja listaa kyseisen liikkeen tulokset päivämäärien mukaan jotta kehitystä voisi seurata tai päivämäärällä esim. mitä tein viime marraskuun seitsemäs päivä joka sitten listaa tulokset haku ehtojen alle.
-
-Tietokanta taulut olisivat 
-1. kayttajat: id, nimi, salis 
-2. liike: id, nimi 
-3. paikka: nimi, id 
-4. toistot: määrä liike_id, kayttaja_id, painomäärä, päivämäärä, paikka_id 
-5. käyttäjäloki: kayttaja_id, date
-
-Sovellus toimii vielä tönkösti ekalla kerralla. ensiksi joutuu kirjautumaan vaikka tunnuksia ei ole. joka siirtää sinut käyttäjän luomiseen ja siitä takaisin kirjautumis pisteeseen. kirjautumisen jälkeen tulee yleissivu mihin voi lisätä tuloksia, mennä tuloksiin (ei vielä mitään siellä) josta voi napilla mennä takaisin yleissivulle, käyttäjä loki pitää listaa milloin olet kirjautunut sisään (herokussa ollaan 3h jäljessä, pitäisi määritellä käyttäjän omat aikavyöhykkeet) ja yleissivun pohjalla on kirjaudu ulos nappi.
+App works now properly and no errors found by dev. Starter you get to page where you can log in or click button to register.
+Link Startpage goes everywhere, where ever you navigate on the app. Before loggin in it goes back to the first page. After logging in it will redirect you to gym stats adding page. As you are Logged in, you can add new gym stats or check when you have been logging in the past by link. Or you can go check your own Statistics. There is also log out link below addind option in Startpage.
 
 heroku sovelluksen linkki:
 https://tsoha-punttisalitilastointi.herokuapp.com
