@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}LOGIN{% endblock %}
+{% block content %}
+{% session.username %}
+<form action="/login" method="POST">
+    <p>Tunnus:<br>
+        <input type="text" name="username" minlength="1" required></p>
+    <p>Salasana:<br>
+    <input type="password" name="password" minlength="1" required></p>
+    <input type="submit" value="Kirjaudu">
+</form>
+{% endblock %}

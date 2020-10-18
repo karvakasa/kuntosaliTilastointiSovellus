@@ -1,8 +1,10 @@
+{% extends "layout.html" %}
+<title>{% block title %}MOI{% endblock %}</title>
+{% block content %}
 {% if session.username %}
-<p>Olet kirjautunut nimellä {{ session.username }}</p>
 <a href="/statistics">tulokset</a> <a href="/userlog">käyttäjä loki</a> 
 <form action="/add" method="POST">
-    <hr>
+    
     <p>
     <label>Valitse punttisali:</label>
     <select name="gym">
@@ -29,8 +31,6 @@
     <p>Paino</p>
     <input type="number" name="weight_amount" minlength="1" min="1" max="1000" required title="Numbers only"></p>
     <input type="submit" value="lisää tulos">
-    <hr>
-
 </form>
 
 <a href="/logout">Kirjaudu ulos</a>
@@ -46,3 +46,4 @@
     <input type="submit" value="Kirjaudu">
 </form>
 {% endif %}
+{% endblock %}

@@ -25,7 +25,7 @@ def add():
     sql = "INSERT INTO userstats (do_amount, weight_amount, date, equipment_id, users_id, gym_id) VALUES (:do_amount, :weight_amount, NOW(), :equipment_id, :username_id, :gym_place_id)"
     db.session.execute(sql, {"do_amount": do_amount, "weight_amount": weight_amount, "equipment_id": equipment_id, "username_id": username_id, "gym_place_id": gym_place_id})
     db.session.commit()
-
+    
     return redirect("/")
 
 
@@ -65,7 +65,7 @@ def scottish_bench():
     sql = "SELECT id FROM users WHERE username=:username"
     result = db.session.execute(sql, {"username": username})
     username_id = result.fetchone()[0]
-    sql = "SELECT date, do_amount, weight_amount, gym_place FROM userstats INNER JOIN gym ON userstats.gym_id=gym.id INNER JOIN equipment ON userstats.equipment_id=equipment.id WHERE users_id=:users_id AND equipment.id=2 ORDER BY date DESC"
+    sql = "SELECT date, do_amount, weight_amount, gym_place FROM userstats INNER JOIN gym ON userstats.gym_id=gym.id INNER JOIN equipment ON userstats.equipment_id=equipment.id WHERE users_id=:users_id AND equipment.id=3 ORDER BY date DESC"
     result = db.session.execute(sql, {"users_id":username_id})
     stats = result.fetchall()
 
@@ -88,7 +88,7 @@ def squat():
     sql = "SELECT id FROM users WHERE username=:username"
     result = db.session.execute(sql, {"username": username})
     username_id = result.fetchone()[0]
-    sql = "SELECT date, do_amount, weight_amount, gym_place FROM userstats INNER JOIN gym ON userstats.gym_id=gym.id INNER JOIN equipment ON userstats.equipment_id=equipment.id WHERE users_id=:users_id AND equipment.id=3 ORDER BY date DESC"
+    sql = "SELECT date, do_amount, weight_amount, gym_place FROM userstats INNER JOIN gym ON userstats.gym_id=gym.id INNER JOIN equipment ON userstats.equipment_id=equipment.id WHERE users_id=:users_id AND equipment.id=2 ORDER BY date DESC"
     result = db.session.execute(sql, {"users_id":username_id})
     stats = result.fetchall()
     return render_template("squat.html", stats=stats)

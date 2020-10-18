@@ -1,14 +1,20 @@
-<button onclick="goBack()">takaisin</button>
-<p>Tee uusi käyttäjä</p>
-<form action="/newUser" method="POST">
-    <p>Tunnus:<br>
-    <input type="text" name="username"></p>
-    <p>Salasana:<br>
-    <input type="password" name="password"></p>
-    <input type="submit" value="Tee Käyttäjä">
-    </form>
-<script>
+{% extends "layout.html" %}
+{% block title %}Rekisteröidysivulle{% endblock %}
+{% block content %}
+<div>
+    <br><button onclick="goBack()">takaisin</button><br>
+    <script>
     function goBack() {
-      window.history.back();
+    window.history.back();
     }
     </script> 
+    <form action="/newUser" method="POST">
+        <p>Rekisteröidy uudeksi käyttäjäksi</p>
+        <p>Tunnus:<br>
+            <input type="text" name="username"></p>
+            <p>Salasana:<br>
+            <input type="password" name="password"></p>
+            <input type="submit" value="Tee Käyttäjä">
+        </form>
+</div>
+{% endblock %}
