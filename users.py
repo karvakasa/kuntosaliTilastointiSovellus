@@ -7,7 +7,7 @@ import statistics
 @app.route("/")
 def index():
     return render_template("index.html")
-
+null
 @app.route("/donewuser", methods=["POST"])
 def donewuser():
     return render_template("newuser.html")
