@@ -24,7 +24,7 @@ def login():
     else:
         hash_value = user[0]
     if check_password_hash(hash_value, password):
-        session["username"] = username
+        asd
 
         """ save log in time and user id """
         sql = "SELECT id FROM users WHERE username=:username"
