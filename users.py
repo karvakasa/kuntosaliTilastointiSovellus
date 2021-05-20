@@ -13,7 +13,7 @@ def donewuser():
     return render_template("newuser.html")
 @app.route("/login", methods=["POST"])
 def login():
-    username = request.form["username"]
+    username = request["username"]
     password = request.form["password"]
     sql = "SELECT password FROM users WHERE username=:username"
     result = db.session.execute(sql, {"username": username})
