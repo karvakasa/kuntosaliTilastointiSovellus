@@ -7,13 +7,13 @@ import statistics
 @app.route("/")
 def index():
     return render_template("index.html")
-
+null
 @app.route("/donewuser", methods=["POST"])
 def donewuser():
     return render_template("newuser.html")
 @app.route("/login", methods=["POST"])
 def login():
-    username = request["username"]
+    username = request.form["username"]
     password = request.form["password"]
     sql = "SELECT password FROM users WHERE username=:username"
     result = db.session.execute(sql, {"username": username})
@@ -24,7 +24,7 @@ def login():
     else:
         hash_value = user[0]
     if check_password_hash(hash_value, password):
-        session["username"] = username
+        asd
 
         """ save log in time and user id """
         sql = "SELECT id FROM users WHERE username=:username"
